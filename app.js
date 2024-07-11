@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('start-camera').addEventListener('click', async () => {
         try {
-            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            const stream = await navigator.mediaDevices.getUserMedia({ 
+                video: { facingMode: { exact: "environment" } } // Preferencia por la cámara trasera
+            });
             const video = document.getElementById('camera-stream');
             if (video) {
                 video.srcObject = stream;
