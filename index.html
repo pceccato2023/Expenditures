@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Gastos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="box_title">
+        <h1>Gestor de gastos</h1> <img class="img_title" src="S.A Logo en AZUL (1).svg">
+    </div>
+    <div class="take_photo_box">
+    <button id="start-camera">Nuevo gasto</button>
+    <button id="take-photo" disabled>Tomar Foto</button>
+    </div>
+    <video id="camera-stream" autoplay></video>
+    <canvas id="snapshot" width="400" height="300" style="display: none;"></canvas>
+    <h2>Resultados</h2>
+    <div id="results"></div>
+    <img id="captured-image" style="display: none;">
+    <h2>Gastos Acumulados</h2>
+    <table id="expenses-table">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Importe</th>
+                <th>Tipo de Gasto</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <div id="category-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-category-modal" class="close">&times;</span>
+            <h2>Selecciona la Categoría</h2>
+            <select id="category-select">
+                <option value="Dietas">Dietas</option>
+                <option value="Gasolina">Gasolina</option>
+                <option value="Hoteles">Hoteles</option>
+                <option value="Peajes">Peajes</option>
+                <option value="Varios">Varios</option>
+            </select>
+            <button id="save-category">Guardar</button>
+        </div>
+    </div>
+
+    <div id="result-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-result-modal" class="close">&times;</span>
+            <h2>Resultado del Gasto</h2>
+            <label for="detected-amount">Importe Detectado:</label>
+            <input type="text" id="detected-amount">
+            <button id="confirm-amount">Confirmar Importe</button>
+        </div>
+    </div>
+
+    <div id="loader" class="loader" style="display: none;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tesseract.js@2.1.1/dist/tesseract.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
